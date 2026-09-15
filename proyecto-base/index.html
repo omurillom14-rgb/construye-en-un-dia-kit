@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- 👇 CAMBIA el título por el de tu negocio -->
+  <title>[Nombre del Negocio] — [Tu Servicio]</title>
+  <meta name="description" content="[Una frase de lo que ofreces]" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Encabezado ===== -->
+  <header class="nav">
+    <a class="brand" href="#top">[Tu Negocio]</a>
+    <a class="nav-cta" href="#contacto">Contáctame</a>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <p class="eyebrow">[Tu ciudad] · [Tu rubro]</p>
+    <h1>[El gran beneficio que ofreces], <em>sin complicaciones</em>.</h1>
+    <p class="lead">
+      Soy [tu nombre] y ayudo a [tu tipo de cliente] a [el resultado que logras].
+      Cuéntame qué necesitas y te respondo hoy mismo.
+    </p>
+    <a class="btn" href="#contacto">Quiero más información →</a>
+  </section>
+
+  <!-- ===== Servicios ===== -->
+  <section class="section" id="servicios">
+    <h2>Lo que hago</h2>
+    <div class="cards">
+      <article class="card">
+        <span class="card-n">01</span>
+        <h3>[Servicio 1]</h3>
+        <p>[Una línea de qué incluye y por qué le sirve al cliente.]</p>
+      </article>
+      <article class="card">
+        <span class="card-n">02</span>
+        <h3>[Servicio 2]</h3>
+        <p>[Una línea de qué incluye y por qué le sirve al cliente.]</p>
+      </article>
+      <article class="card">
+        <span class="card-n">03</span>
+        <h3>[Servicio 3]</h3>
+        <p>[Una línea de qué incluye y por qué le sirve al cliente.]</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Por qué yo ===== -->
+  <section class="section alt" id="sobre-mi">
+    <h2>Por qué elegirme</h2>
+    <ul class="reasons">
+      <li><strong>[Razón 1].</strong> [Una frase que lo respalde.]</li>
+      <li><strong>[Razón 2].</strong> [Una frase que lo respalde.]</li>
+      <li><strong>[Razón 3].</strong> [Una frase que lo respalde.]</li>
+    </ul>
+  </section>
+
+  <!-- ===== Contacto ===== -->
+  <section class="section" id="contacto">
+    <h2>Hablemos</h2>
+    <p class="lead">Déjame tus datos y te contacto hoy.</p>
+
+    <!--
+      Este formulario YA funciona: al enviar muestra un mensaje de gracias.
+      Para que además te LLEGUE por correo, tienes dos opciones (ver README):
+        A) FormSubmit: cambia el action de abajo por
+           action="https://formsubmit.co/TU-CORREO@ejemplo.com" method="POST"
+        B) Pídele a Claude Code que conecte el envío por correo.
+    -->
+    <form id="form-contacto" class="form">
+      <label>Nombre
+        <input type="text" name="nombre" required placeholder="Tu nombre" />
+      </label>
+      <label>Correo
+        <input type="email" name="correo" required placeholder="tu@correo.com" />
+      </label>
+      <label>¿En qué te ayudo?
+        <textarea name="mensaje" rows="4" required placeholder="Cuéntame brevemente..."></textarea>
+      </label>
+      <button type="submit" class="btn">Enviar →</button>
+    </form>
+
+    <p id="gracias" class="gracias" hidden>
+      ✅ ¡Gracias! Recibí tu mensaje y te contacto pronto.
+    </p>
+  </section>
+
+  <!-- ===== Pie ===== -->
+  <footer class="foot">
+    <span>© <span id="anio"></span> [Tu Negocio]</span>
+    <span>Hecho en una tarde con Claude Code + Vercel</span>
+  </footer>
+
+  <script>
+    // Año automático en el pie.
+    document.getElementById("anio").textContent = new Date().getFullYear();
+
+    // El formulario muestra confirmación al enviar.
+    // Si conectaste FormSubmit (action + method POST), borra este bloque
+    // para que el formulario envíe de verdad al servicio de correo.
+    var form = document.getElementById("form-contacto");
+    if (form && !form.getAttribute("action")) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        form.hidden = true;
+        document.getElementById("gracias").hidden = false;
+      });
+    }
+  </script>
+
+</body>
+</html>
