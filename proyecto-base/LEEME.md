@@ -7,7 +7,6 @@ Proyecto base **estático** (HTML + CSS, sin dependencias ni build) para rescata
 Desde esta carpeta, con la cuenta de Vercel **del alumno** ya autenticada:
 
 ```bash
-cd plantilla-fallback
 npx vercel --prod --yes
 ```
 
